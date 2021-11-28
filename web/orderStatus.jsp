@@ -68,7 +68,7 @@
                             <td style="padding: 15px 0 0 30px">Order Approved</td>
                             <td><a href="cancelOrder?id=<%=orderItems.get(i).getOrderId()%>" class="btn btn-success">&nbsp;Cancel&nbsp;</a></td>
                     <%}else{%>
-                            <td style="padding: 15px 0 0 30px">Order Canceled</td>
+                            <td style="padding: 15px 0 0 30px">Order Declined</td>
                             <td><a href="cancelOrder?id=<%=orderItems.get(i).getOrderId()%>" class="btn btn-success">Remove</a></td>
                     <%}%>
                 </tr>

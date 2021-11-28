@@ -46,6 +46,10 @@ public class OrderStatus extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             HttpSession session = request.getSession();
+            
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            
+            
             Object orderListObject = session.getAttribute("orderList");
             ArrayList<Order> orderList = new ArrayList<Order>();
             
@@ -78,12 +82,13 @@ public class OrderStatus extends HttpServlet {
                     order.setOrderStatus(rs.getInt("order_status"));
                     order.setUserId(rs.getInt("userId"));
                     //stmt.close();
-                    orderList.add(order);
+                    if(userId == order.getUserId()){
+                        orderList.add(order);
+                    }
                 }
             } catch (SQLException e) {
                 out.print(e.getMessage());
             }
-            
             session.setAttribute("orderList", orderList);
             RequestDispatcher rd = request.getRequestDispatcher("orderStatus.jsp");
             rd.forward(request, response);

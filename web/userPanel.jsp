@@ -44,7 +44,7 @@
 <div class="container m-3" style="padding-left: 30%">
     <c:if test="${user.role == 2}">
         <a class="btn btn-success p-2" href="GetItems">Press to See Avaliable Items</a>
-        <a class="btn btn-success p-2" href="OrderStatus">Press to See Order Status</a>
+        <a class="btn btn-success p-2" href="OrderStatus?userId=${user.userId}">Press to See Order Status</a>
     </c:if>
         <c:if test="${user.role == 3}">
         <a class="btn btn-success p-2" href="GetItems" style="margin-left: 15%">Press to See Avaliable Items</a>
